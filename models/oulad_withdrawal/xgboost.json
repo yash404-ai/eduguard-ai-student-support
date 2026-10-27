@@ -1,0 +1,414 @@
+{
+  "model_id": "oulad_withdrawal-v20261027142110-xgboost",
+  "version": "oulad_withdrawal-v20261027142110",
+  "dataset_id": "oulad_withdrawal",
+  "title": "OULAD withdrawal prediction at day 60",
+  "algorithm": "xgboost",
+  "target": "Withdrawn (final_result = Withdrawn) vs Continued, for students still registered on day 60.",
+  "classes": [
+    "Continued",
+    "Withdrawn"
+  ],
+  "class_mapping": {
+    "Continued": 0,
+    "Withdrawn": 1
+  },
+  "trained_at": "2026-10-27T14:21:47.070254+00:00",
+  "seed": 42,
+  "split": {
+    "strategy": "stratified-grouped",
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15,
+    "n_train": 18451,
+    "n_validation": 3955,
+    "n_test": 3955
+  },
+  "selection_metric": "validation macro_f1",
+  "hyperparameters": {
+    "n_estimators": 300,
+    "max_depth": 5,
+    "learning_rate": 0.1
+  },
+  "tuning_log": [
+    {
+      "params": {
+        "n_estimators": 150,
+        "max_depth": 3,
+        "learning_rate": 0.05
+      },
+      "val_macro_f1": 0.5725721323011963,
+      "val_accuracy": 0.6738305941845765,
+      "val_log_loss": 0.6061575824203794,
+      "fit_seconds": 0.7
+    },
+    {
+      "params": {
+        "n_estimators": 150,
+        "max_depth": 3,
+        "learning_rate": 0.1
+      },
+      "val_macro_f1": 0.584660880765373,
+      "val_accuracy": 0.6869785082174462,
+      "val_log_loss": 0.5962510024034278,
+      "fit_seconds": 0.7
+    },
+    {
+      "params": {
+        "n_estimators": 150,
+        "max_depth": 5,
+        "learning_rate": 0.05
+      },
+      "val_macro_f1": 0.5941083716039066,
+      "val_accuracy": 0.7059418457648546,
+      "val_log_loss": 0.5735830284179301,
+      "fit_seconds": 1.0
+    },
+    {
+      "params": {
+        "n_estimators": 150,
+        "max_depth": 5,
+        "learning_rate": 0.1
+      },
+      "val_macro_f1": 0.6070990577559235,
+      "val_accuracy": 0.7243994943109987,
+      "val_log_loss": 0.5503660706054141,
+      "fit_seconds": 0.8
+    },
+    {
+      "params": {
+        "n_estimators": 300,
+        "max_depth": 3,
+        "learning_rate": 0.05
+      },
+      "val_macro_f1": 0.5853224275644375,
+      "val_accuracy": 0.6892541087231353,
+      "val_log_loss": 0.5934773453519094,
+      "fit_seconds": 1.0
+    },
+    {
+      "params": {
+        "n_estimators": 300,
+        "max_depth": 3,
+        "learning_rate": 0.1
+      },
+      "val_macro_f1": 0.590098673661626,
+      "val_accuracy": 0.6993678887484197,
+      "val_log_loss": 0.5801788955928804,
+      "fit_seconds": 1.2
+    },
+    {
+      "params": {
+        "n_estimators": 300,
+        "max_depth": 5,
+        "learning_rate": 0.05
+      },
+      "val_macro_f1": 0.5991638551694866,
+      "val_accuracy": 0.7216182048040455,
+      "val_log_loss": 0.5469606052225745,
+      "fit_seconds": 1.4
+    },
+    {
+      "params": {
+        "n_estimators": 300,
+        "max_depth": 5,
+        "learning_rate": 0.1
+      },
+      "val_macro_f1": 0.6137644321534439,
+      "val_accuracy": 0.7456384323640961,
+      "val_log_loss": 0.5144048836752253,
+      "fit_seconds": 1.4
+    }
+  ],
+  "class_imbalance_handling": "balanced class/sample weights",
+  "validation_metrics": {
+    "n_samples": 3955,
+    "accuracy": 0.7456384323640961,
+    "macro_f1": 0.6137644321534439,
+    "weighted_f1": 0.7721159469022798,
+    "log_loss": 0.5144048836752253,
+    "per_class": {
+      "Continued": {
+        "precision": 0.9065839365735953,
+        "recall": 0.7815750371471025,
+        "f1": 0.8394510054261092,
+        "support": 3365
+      },
+      "Withdrawn": {
+        "precision": 0.3026565464895636,
+        "recall": 0.5406779661016949,
+        "f1": 0.3880778588807786,
+        "support": 590
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Continued",
+        "Withdrawn"
+      ],
+      "matrix": [
+        [
+          2630,
+          735
+        ],
+        [
+          271,
+          319
+        ]
+      ]
+    },
+    "roc_auc": 0.7125171884050672,
+    "pr_auc": 0.32989571172144333
+  },
+  "test_metrics": {
+    "n_samples": 3955,
+    "accuracy": 0.7426042983565108,
+    "macro_f1": 0.602321126043833,
+    "weighted_f1": 0.7680451801807767,
+    "log_loss": 0.5147584946366279,
+    "per_class": {
+      "Continued": {
+        "precision": 0.899285471248724,
+        "recall": 0.7854383358098068,
+        "f1": 0.8385152284263959,
+        "support": 3365
+      },
+      "Withdrawn": {
+        "precision": 0.28937007874015747,
+        "recall": 0.49830508474576274,
+        "f1": 0.36612702366127026,
+        "support": 590
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Continued",
+        "Withdrawn"
+      ],
+      "matrix": [
+        [
+          2643,
+          722
+        ],
+        [
+          296,
+          294
+        ]
+      ]
+    },
+    "roc_auc": 0.7089576145264058,
+    "pr_auc": 0.32326093592279415
+  },
+  "feature_schema": {
+    "num_of_prev_attempts": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 6.0,
+      "integer": true
+    },
+    "studied_credits": {
+      "type": "numeric",
+      "min": 30.0,
+      "max": 630.0,
+      "integer": true
+    },
+    "date_registration": {
+      "type": "numeric",
+      "min": -310.0,
+      "max": 167.0,
+      "integer": false
+    },
+    "clicks_total": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 11102.0,
+      "integer": false
+    },
+    "clicks_active_days": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 86.0,
+      "integer": false
+    },
+    "clicks_distinct_sites": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 299.0,
+      "integer": false
+    },
+    "clicks_last14": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 3900.0,
+      "integer": false
+    },
+    "clicks_prev14": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 7006.0,
+      "integer": false
+    },
+    "days_since_last_click": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 84.0,
+      "integer": false
+    },
+    "clicks_before_start": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 3731.0,
+      "integer": false
+    },
+    "n_assess_due": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 4.0,
+      "integer": false
+    },
+    "n_assess_submitted": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 4.0,
+      "integer": false
+    },
+    "assess_submit_rate": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": false
+    },
+    "assess_mean_score": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 100.0,
+      "integer": false
+    },
+    "assess_weighted_score": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 100.0,
+      "integer": false
+    },
+    "n_assess_late": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 4.0,
+      "integer": false
+    },
+    "code_module": {
+      "type": "categorical",
+      "allowed": [
+        "AAA",
+        "BBB",
+        "CCC",
+        "DDD",
+        "EEE",
+        "FFF",
+        "GGG"
+      ]
+    },
+    "code_presentation": {
+      "type": "categorical",
+      "allowed": [
+        "2013B",
+        "2013J",
+        "2014B",
+        "2014J"
+      ]
+    },
+    "gender": {
+      "type": "categorical",
+      "allowed": [
+        "F",
+        "M"
+      ]
+    },
+    "region": {
+      "type": "categorical",
+      "allowed": [
+        "East Anglian Region",
+        "East Midlands Region",
+        "Ireland",
+        "London Region",
+        "North Region",
+        "North Western Region",
+        "Scotland",
+        "South East Region",
+        "South Region",
+        "South West Region",
+        "Wales",
+        "West Midlands Region",
+        "Yorkshire Region"
+      ]
+    },
+    "highest_education": {
+      "type": "categorical",
+      "allowed": [
+        "A Level or Equivalent",
+        "HE Qualification",
+        "Lower Than A Level",
+        "No Formal quals",
+        "Post Graduate Qualification"
+      ]
+    },
+    "imd_band": {
+      "type": "categorical",
+      "allowed": [
+        "0-10%",
+        "10-20",
+        "20-30%",
+        "30-40%",
+        "40-50%",
+        "50-60%",
+        "60-70%",
+        "70-80%",
+        "80-90%",
+        "90-100%"
+      ]
+    },
+    "age_band": {
+      "type": "categorical",
+      "allowed": [
+        "0-35",
+        "35-55",
+        "55<="
+      ]
+    },
+    "disability": {
+      "type": "categorical",
+      "allowed": [
+        "N",
+        "Y"
+      ]
+    }
+  },
+  "provenance": {
+    "source": "Open University Learning Analytics Dataset (Kuzilek et al., 2017)",
+    "files": [
+      "studentInfo",
+      "studentRegistration",
+      "studentVle",
+      "assessments",
+      "studentAssessment"
+    ],
+    "prediction_day": 60,
+    "rows": 26361,
+    "leakage_controls": [
+      "students who unregistered on/before cutoff removed",
+      "VLE clicks with date > cutoff dropped",
+      "only assessments due and submitted by cutoff",
+      "final_result/score_total never used as a feature"
+    ]
+  },
+  "intended_use": "Identify students at risk of withdrawing from an online course around week 8; staff review only.",
+  "limitations": [
+    "Online distance-learning UK university; not equivalent to the UCI 3-class dropout or Indian school contexts.",
+    "Withdrawal can occur after cutoff for reasons the logs cannot show.",
+    "Same student may appear in several presentations (grouped in splits).",
+    "Probabilities are uncalibrated; the base rate differs per module and cutoff."
+  ],
+  "status": "validated",
+  "explanation_note": "SHAP values describe how the model uses features; they are NOT causal explanations.",
+  "prediction_day": 60
+}

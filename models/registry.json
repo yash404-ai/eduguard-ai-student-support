@@ -1,0 +1,62 @@
+{
+  "datasets": {
+    "uci_dropout": {
+      "version": "uci_dropout-v20261027141959",
+      "dir": "uci_dropout",
+      "algorithms": [
+        "logistic_regression",
+        "random_forest",
+        "xgboost"
+      ]
+    },
+    "xapi_performance": {
+      "version": "xapi_performance-v20261027142018",
+      "dir": "xapi_performance",
+      "algorithms": [
+        "logistic_regression",
+        "random_forest",
+        "xgboost"
+      ]
+    },
+    "student_performance": {
+      "version": "student_performance-v20261027141946",
+      "dir": "student_performance",
+      "algorithms": [
+        "logistic_regression",
+        "random_forest",
+        "xgboost"
+      ]
+    },
+    "oulad_withdrawal": {
+      "version": "oulad_withdrawal-v20261027142110",
+      "dir": "oulad_withdrawal",
+      "algorithms": [
+        "logistic_regression",
+        "random_forest",
+        "xgboost"
+      ]
+    }
+  },
+  "selected": {
+    "uci_dropout": {
+      "algorithm": "xgboost",
+      "version": "uci_dropout-v20261027141959",
+      "reason": "best validation macro-F1 (auto)"
+    },
+    "xapi_performance": {
+      "algorithm": "random_forest",
+      "version": "xapi_performance-v20261027142018",
+      "reason": "restore"
+    },
+    "student_performance": {
+      "algorithm": "logistic_regression",
+      "version": "student_performance-v20261027141946",
+      "reason": "best validation macro-F1 (auto)"
+    },
+    "oulad_withdrawal": {
+      "algorithm": "random_forest",
+      "version": "oulad_withdrawal-v20261027142110",
+      "reason": "best validation macro-F1 (auto)"
+    }
+  }
+}

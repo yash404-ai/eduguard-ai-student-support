@@ -1,0 +1,616 @@
+{
+  "model_id": "uci_dropout-v20261027141959-random_forest",
+  "version": "uci_dropout-v20261027141959",
+  "dataset_id": "uci_dropout",
+  "title": "UCI Predict Students' Dropout and Academic Success",
+  "algorithm": "random_forest",
+  "target": "Target: Dropout / Enrolled / Graduate (dataset's own labels)",
+  "classes": [
+    "Dropout",
+    "Enrolled",
+    "Graduate"
+  ],
+  "class_mapping": {
+    "Dropout": 0,
+    "Enrolled": 1,
+    "Graduate": 2
+  },
+  "trained_at": "2026-10-27T14:20:07.787312+00:00",
+  "seed": 42,
+  "split": {
+    "strategy": "stratified",
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15,
+    "n_train": 3095,
+    "n_validation": 663,
+    "n_test": 666
+  },
+  "selection_metric": "validation macro_f1",
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": 12,
+    "min_samples_leaf": 3
+  },
+  "tuning_log": [
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      "val_macro_f1": 0.6685087844837367,
+      "val_accuracy": 0.7586726998491704,
+      "val_log_loss": 0.6039840690785013,
+      "fit_seconds": 2.1
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 3
+      },
+      "val_macro_f1": 0.6906598042901814,
+      "val_accuracy": 0.7496229260935143,
+      "val_log_loss": 0.6337180329271936,
+      "fit_seconds": 1.6
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 12,
+        "min_samples_leaf": 1
+      },
+      "val_macro_f1": 0.6892280497351053,
+      "val_accuracy": 0.7481146304675717,
+      "val_log_loss": 0.6379658901994342,
+      "fit_seconds": 1.4
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 12,
+        "min_samples_leaf": 3
+      },
+      "val_macro_f1": 0.6970021180633426,
+      "val_accuracy": 0.7481146304675717,
+      "val_log_loss": 0.6540678164091641,
+      "fit_seconds": 1.5
+    }
+  ],
+  "class_imbalance_handling": "balanced class/sample weights",
+  "validation_metrics": {
+    "n_samples": 663,
+    "accuracy": 0.7481146304675717,
+    "macro_f1": 0.6970021180633426,
+    "weighted_f1": 0.7488266921307829,
+    "log_loss": 0.6540678164091641,
+    "per_class": {
+      "Dropout": {
+        "precision": 0.8418079096045198,
+        "recall": 0.6995305164319249,
+        "f1": 0.764102564102564,
+        "support": 213
+      },
+      "Enrolled": {
+        "precision": 0.47692307692307695,
+        "recall": 0.5166666666666667,
+        "f1": 0.496,
+        "support": 120
+      },
+      "Graduate": {
+        "precision": 0.800561797752809,
+        "recall": 0.8636363636363636,
+        "f1": 0.8309037900874635,
+        "support": 330
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Dropout",
+        "Enrolled",
+        "Graduate"
+      ],
+      "matrix": [
+        [
+          149,
+          33,
+          31
+        ],
+        [
+          18,
+          62,
+          40
+        ],
+        [
+          10,
+          35,
+          285
+        ]
+      ]
+    },
+    "roc_auc_ovr_macro": 0.8844453135870146
+  },
+  "test_metrics": {
+    "n_samples": 666,
+    "accuracy": 0.7297297297297297,
+    "macro_f1": 0.6812543493125435,
+    "weighted_f1": 0.7354873485260446,
+    "log_loss": 0.6835168646676333,
+    "per_class": {
+      "Dropout": {
+        "precision": 0.8020304568527918,
+        "recall": 0.7383177570093458,
+        "f1": 0.7688564476885644,
+        "support": 214
+      },
+      "Enrolled": {
+        "precision": 0.4236111111111111,
+        "recall": 0.5083333333333333,
+        "f1": 0.4621212121212121,
+        "support": 120
+      },
+      "Graduate": {
+        "precision": 0.8215384615384616,
+        "recall": 0.8042168674698795,
+        "f1": 0.8127853881278538,
+        "support": 332
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Dropout",
+        "Enrolled",
+        "Graduate"
+      ],
+      "matrix": [
+        [
+          158,
+          32,
+          24
+        ],
+        [
+          25,
+          61,
+          34
+        ],
+        [
+          14,
+          51,
+          267
+        ]
+      ]
+    },
+    "roc_auc_ovr_macro": 0.8577868810647716
+  },
+  "feature_schema": {
+    "Application order": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 6.0,
+      "integer": true
+    },
+    "Daytime/evening attendance": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Previous qualification (grade)": {
+      "type": "numeric",
+      "min": 95.0,
+      "max": 190.0,
+      "integer": false
+    },
+    "Admission grade": {
+      "type": "numeric",
+      "min": 95.0,
+      "max": 190.0,
+      "integer": false
+    },
+    "Displaced": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Educational special needs": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Debtor": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Tuition fees up to date": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Gender": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Scholarship holder": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Age at enrollment": {
+      "type": "numeric",
+      "min": 17.0,
+      "max": 70.0,
+      "integer": true
+    },
+    "International": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 1.0,
+      "integer": true
+    },
+    "Curricular units 1st sem (credited)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 20.0,
+      "integer": true
+    },
+    "Curricular units 1st sem (enrolled)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 26.0,
+      "integer": true
+    },
+    "Curricular units 1st sem (evaluations)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 45.0,
+      "integer": true
+    },
+    "Curricular units 1st sem (approved)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 26.0,
+      "integer": true
+    },
+    "Curricular units 1st sem (grade)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 18.0,
+      "integer": false
+    },
+    "Curricular units 1st sem (without evaluations)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 12.0,
+      "integer": true
+    },
+    "Curricular units 2nd sem (credited)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 18.0,
+      "integer": true
+    },
+    "Curricular units 2nd sem (enrolled)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 23.0,
+      "integer": true
+    },
+    "Curricular units 2nd sem (evaluations)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 27.0,
+      "integer": true
+    },
+    "Curricular units 2nd sem (approved)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 20.0,
+      "integer": true
+    },
+    "Curricular units 2nd sem (grade)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 17.6,
+      "integer": false
+    },
+    "Curricular units 2nd sem (without evaluations)": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 8.0,
+      "integer": true
+    },
+    "Unemployment rate": {
+      "type": "numeric",
+      "min": 7.6,
+      "max": 16.2,
+      "integer": false
+    },
+    "Inflation rate": {
+      "type": "numeric",
+      "min": -0.8,
+      "max": 3.7,
+      "integer": false
+    },
+    "GDP": {
+      "type": "numeric",
+      "min": -4.06,
+      "max": 3.51,
+      "integer": false
+    },
+    "Marital status": {
+      "type": "categorical",
+      "allowed": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "Application mode": {
+      "type": "categorical",
+      "allowed": [
+        "1",
+        "10",
+        "15",
+        "16",
+        "17",
+        "18",
+        "2",
+        "39",
+        "42",
+        "43",
+        "44",
+        "5",
+        "51",
+        "53",
+        "57",
+        "7"
+      ]
+    },
+    "Course": {
+      "type": "categorical",
+      "allowed": [
+        "171",
+        "33",
+        "8014",
+        "9003",
+        "9070",
+        "9085",
+        "9119",
+        "9130",
+        "9147",
+        "9238",
+        "9254",
+        "9500",
+        "9556",
+        "9670",
+        "9773",
+        "9853",
+        "9991"
+      ]
+    },
+    "Previous qualification": {
+      "type": "categorical",
+      "allowed": [
+        "1",
+        "10",
+        "12",
+        "14",
+        "15",
+        "19",
+        "2",
+        "3",
+        "38",
+        "39",
+        "4",
+        "40",
+        "42",
+        "43",
+        "6",
+        "9"
+      ]
+    },
+    "Nacionality": {
+      "type": "categorical",
+      "allowed": [
+        "1",
+        "100",
+        "101",
+        "103",
+        "105",
+        "108",
+        "109",
+        "11",
+        "13",
+        "14",
+        "17",
+        "2",
+        "21",
+        "22",
+        "24",
+        "25",
+        "26",
+        "32",
+        "41",
+        "6",
+        "62"
+      ]
+    },
+    "Mother's qualification": {
+      "type": "categorical",
+      "allowed": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "14",
+        "19",
+        "2",
+        "22",
+        "26",
+        "27",
+        "29",
+        "3",
+        "30",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "4",
+        "40",
+        "41",
+        "42",
+        "43",
+        "5",
+        "6",
+        "9"
+      ]
+    },
+    "Father's qualification": {
+      "type": "categorical",
+      "allowed": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "19",
+        "2",
+        "22",
+        "25",
+        "26",
+        "27",
+        "29",
+        "3",
+        "30",
+        "33",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "4",
+        "40",
+        "41",
+        "42",
+        "44",
+        "5",
+        "6",
+        "9"
+      ]
+    },
+    "Mother's occupation": {
+      "type": "categorical",
+      "allowed": [
+        "0",
+        "1",
+        "10",
+        "122",
+        "123",
+        "131",
+        "132",
+        "134",
+        "141",
+        "143",
+        "144",
+        "151",
+        "152",
+        "153",
+        "171",
+        "173",
+        "175",
+        "191",
+        "192",
+        "193",
+        "194",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "90",
+        "99"
+      ]
+    },
+    "Father's occupation": {
+      "type": "categorical",
+      "allowed": [
+        "0",
+        "1",
+        "10",
+        "101",
+        "102",
+        "103",
+        "112",
+        "114",
+        "121",
+        "122",
+        "123",
+        "132",
+        "135",
+        "141",
+        "143",
+        "144",
+        "151",
+        "152",
+        "154",
+        "161",
+        "163",
+        "171",
+        "172",
+        "174",
+        "175",
+        "181",
+        "182",
+        "183",
+        "192",
+        "193",
+        "194",
+        "195",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "90",
+        "99"
+      ]
+    }
+  },
+  "provenance": {
+    "source": "UCI ML Repository - Predict Students' Dropout and Academic Success (Realinho et al., 2021)",
+    "file": "data__1_.csv",
+    "rows": 4424,
+    "missing_values": 0
+  },
+  "intended_use": "Early-warning triage for staff review at the end of the 1st year. Not for automatic decisions.",
+  "limitations": [
+    "Single Portuguese higher-education institution; may not transfer to Indian schools.",
+    "Includes 1st- and 2nd-semester academic results, so predictions are only valid after semester 2.",
+    "'Enrolled' is a still-in-progress outcome, not a final outcome.",
+    "Probabilities are not calibrated; do not treat them as exact risk percentages."
+  ],
+  "status": "validated",
+  "explanation_note": "SHAP values describe how the model uses features; they are NOT causal explanations."
+}

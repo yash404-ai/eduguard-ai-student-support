@@ -1,0 +1,1230 @@
+{
+  "dataset_id": "student_performance",
+  "version": "student_performance-v20261027141946",
+  "title": "Student Performance (Math + Portuguese) - fail risk",
+  "selected_default": "logistic_regression",
+  "models": {
+    "logistic_regression": {
+      "model_id": "student_performance-v20261027141946-logistic_regression",
+      "version": "student_performance-v20261027141946",
+      "dataset_id": "student_performance",
+      "title": "Student Performance (Math + Portuguese) - fail risk",
+      "algorithm": "logistic_regression",
+      "target": "fail = final grade G3 < 10 (of 20); pass = G3 >= 10. Academic failure, NOT dropout.",
+      "classes": [
+        "fail",
+        "pass"
+      ],
+      "class_mapping": {
+        "fail": 0,
+        "pass": 1
+      },
+      "trained_at": "2026-10-27T14:19:46.904463+00:00",
+      "seed": 42,
+      "split": {
+        "strategy": "stratified-grouped",
+        "train": 0.7,
+        "validation": 0.15,
+        "test": 0.15,
+        "n_train": 729,
+        "n_validation": 158,
+        "n_test": 157
+      },
+      "selection_metric": "validation macro_f1",
+      "hyperparameters": {
+        "C": 0.01
+      },
+      "tuning_log": [
+        {
+          "params": {
+            "C": 0.01
+          },
+          "val_macro_f1": 0.7106227106227105,
+          "val_accuracy": 0.7848101265822784,
+          "val_log_loss": 0.5719478916229618,
+          "fit_seconds": 0.1
+        },
+        {
+          "params": {
+            "C": 0.1
+          },
+          "val_macro_f1": 0.6485338725985844,
+          "val_accuracy": 0.7215189873417721,
+          "val_log_loss": 0.5498317759704456,
+          "fit_seconds": 0.1
+        },
+        {
+          "params": {
+            "C": 1.0
+          },
+          "val_macro_f1": 0.6376902230560767,
+          "val_accuracy": 0.7215189873417721,
+          "val_log_loss": 0.5664562415023261,
+          "fit_seconds": 0.0
+        },
+        {
+          "params": {
+            "C": 10.0
+          },
+          "val_macro_f1": 0.6376902230560767,
+          "val_accuracy": 0.7215189873417721,
+          "val_log_loss": 0.5724782049598898,
+          "fit_seconds": 0.1
+        }
+      ],
+      "class_imbalance_handling": "balanced class/sample weights",
+      "validation_metrics": {
+        "n_samples": 158,
+        "accuracy": 0.7848101265822784,
+        "macro_f1": 0.7106227106227105,
+        "weighted_f1": 0.7922288681782352,
+        "log_loss": 0.5719478916229618,
+        "per_class": {
+          "fail": {
+            "precision": 0.5116279069767442,
+            "recall": 0.6285714285714286,
+            "f1": 0.5641025641025641,
+            "support": 35
+          },
+          "pass": {
+            "precision": 0.8869565217391304,
+            "recall": 0.8292682926829268,
+            "f1": 0.8571428571428571,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "fail",
+            "pass"
+          ],
+          "matrix": [
+            [
+              22,
+              13
+            ],
+            [
+              21,
+              102
+            ]
+          ]
+        },
+        "roc_auc": 0.8076655052264808,
+        "pr_auc": 0.9289856558356981
+      },
+      "test_metrics": {
+        "n_samples": 157,
+        "accuracy": 0.7707006369426752,
+        "macro_f1": 0.7158085277554305,
+        "weighted_f1": 0.786611393228833,
+        "log_loss": 0.5630599975127958,
+        "per_class": {
+          "fail": {
+            "precision": 0.48148148148148145,
+            "recall": 0.7647058823529411,
+            "f1": 0.5909090909090909,
+            "support": 34
+          },
+          "pass": {
+            "precision": 0.9223300970873787,
+            "recall": 0.7723577235772358,
+            "f1": 0.8407079646017699,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "fail",
+            "pass"
+          ],
+          "matrix": [
+            [
+              26,
+              8
+            ],
+            [
+              28,
+              95
+            ]
+          ]
+        },
+        "roc_auc": 0.8546150167384027,
+        "pr_auc": 0.9573070159924276
+      },
+      "feature_schema": {
+        "age": {
+          "type": "numeric",
+          "min": 15.0,
+          "max": 22.0,
+          "integer": true
+        },
+        "Medu": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "Fedu": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "traveltime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "studytime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "failures": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 3.0,
+          "integer": true
+        },
+        "famrel": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "freetime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "goout": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "Dalc": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "Walc": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "health": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "absences": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 75.0,
+          "integer": true
+        },
+        "school": {
+          "type": "categorical",
+          "allowed": [
+            "GP",
+            "MS"
+          ]
+        },
+        "sex": {
+          "type": "categorical",
+          "allowed": [
+            "F",
+            "M"
+          ]
+        },
+        "address": {
+          "type": "categorical",
+          "allowed": [
+            "R",
+            "U"
+          ]
+        },
+        "famsize": {
+          "type": "categorical",
+          "allowed": [
+            "GT3",
+            "LE3"
+          ]
+        },
+        "Pstatus": {
+          "type": "categorical",
+          "allowed": [
+            "A",
+            "T"
+          ]
+        },
+        "Mjob": {
+          "type": "categorical",
+          "allowed": [
+            "at_home",
+            "health",
+            "other",
+            "services",
+            "teacher"
+          ]
+        },
+        "Fjob": {
+          "type": "categorical",
+          "allowed": [
+            "at_home",
+            "health",
+            "other",
+            "services",
+            "teacher"
+          ]
+        },
+        "reason": {
+          "type": "categorical",
+          "allowed": [
+            "course",
+            "home",
+            "other",
+            "reputation"
+          ]
+        },
+        "guardian": {
+          "type": "categorical",
+          "allowed": [
+            "father",
+            "mother",
+            "other"
+          ]
+        },
+        "schoolsup": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "famsup": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "paid": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "activities": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "nursery": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "higher": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "internet": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "romantic": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "subject": {
+          "type": "categorical",
+          "allowed": [
+            "math",
+            "portuguese"
+          ]
+        }
+      },
+      "provenance": {
+        "source": "UCI Student Performance (Cortez & Silva, 2008), Portuguese secondary schools",
+        "files": [
+          "student-mat.csv",
+          "student-por.csv"
+        ],
+        "rows": 1044,
+        "duplicate_students_grouped": 382,
+        "excluded_for_leakage": [
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "intended_use": "Early-warning support from background/behaviour before any grades exist.",
+      "limitations": [
+        "~1,044 rows from two schools in Portugal; metrics are noisy.",
+        "Grades G1/G2 are deliberately excluded, which lowers accuracy but avoids near-duplicate-of-target features.",
+        "Contains sensitive attributes (alcohol use, romantic status, parents' education/jobs); use only to direct support, never to penalise students.",
+        "Pass/fail is not dropout."
+      ],
+      "status": "validated",
+      "explanation_note": "SHAP values describe how the model uses features; they are NOT causal explanations."
+    },
+    "random_forest": {
+      "model_id": "student_performance-v20261027141946-random_forest",
+      "version": "student_performance-v20261027141946",
+      "dataset_id": "student_performance",
+      "title": "Student Performance (Math + Portuguese) - fail risk",
+      "algorithm": "random_forest",
+      "target": "fail = final grade G3 < 10 (of 20); pass = G3 >= 10. Academic failure, NOT dropout.",
+      "classes": [
+        "fail",
+        "pass"
+      ],
+      "class_mapping": {
+        "fail": 0,
+        "pass": 1
+      },
+      "trained_at": "2026-10-27T14:19:50.120561+00:00",
+      "seed": 42,
+      "split": {
+        "strategy": "stratified-grouped",
+        "train": 0.7,
+        "validation": 0.15,
+        "test": 0.15,
+        "n_train": 729,
+        "n_validation": 158,
+        "n_test": 157
+      },
+      "selection_metric": "validation macro_f1",
+      "hyperparameters": {
+        "n_estimators": 200,
+        "max_depth": 12,
+        "min_samples_leaf": 3
+      },
+      "tuning_log": [
+        {
+          "params": {
+            "n_estimators": 200,
+            "max_depth": null,
+            "min_samples_leaf": 1
+          },
+          "val_macro_f1": 0.48810515597519205,
+          "val_accuracy": 0.7784810126582279,
+          "val_log_loss": 0.4315583023766742,
+          "fit_seconds": 0.7
+        },
+        {
+          "params": {
+            "n_estimators": 200,
+            "max_depth": null,
+            "min_samples_leaf": 3
+          },
+          "val_macro_f1": 0.631043956043956,
+          "val_accuracy": 0.7848101265822784,
+          "val_log_loss": 0.44695102798652464,
+          "fit_seconds": 0.8
+        },
+        {
+          "params": {
+            "n_estimators": 200,
+            "max_depth": 12,
+            "min_samples_leaf": 1
+          },
+          "val_macro_f1": 0.5095343680709534,
+          "val_accuracy": 0.7784810126582279,
+          "val_log_loss": 0.422891847624293,
+          "fit_seconds": 0.8
+        },
+        {
+          "params": {
+            "n_estimators": 200,
+            "max_depth": 12,
+            "min_samples_leaf": 3
+          },
+          "val_macro_f1": 0.6527472527472528,
+          "val_accuracy": 0.7974683544303798,
+          "val_log_loss": 0.44438832804796374,
+          "fit_seconds": 0.7
+        }
+      ],
+      "class_imbalance_handling": "balanced class/sample weights",
+      "validation_metrics": {
+        "n_samples": 158,
+        "accuracy": 0.7974683544303798,
+        "macro_f1": 0.6527472527472528,
+        "weighted_f1": 0.7776046738072054,
+        "log_loss": 0.44438832804796374,
+        "per_class": {
+          "fail": {
+            "precision": 0.5714285714285714,
+            "recall": 0.34285714285714286,
+            "f1": 0.42857142857142855,
+            "support": 35
+          },
+          "pass": {
+            "precision": 0.8321167883211679,
+            "recall": 0.926829268292683,
+            "f1": 0.8769230769230769,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "fail",
+            "pass"
+          ],
+          "matrix": [
+            [
+              12,
+              23
+            ],
+            [
+              9,
+              114
+            ]
+          ]
+        },
+        "roc_auc": 0.8297328687572592,
+        "pr_auc": 0.9411145193466666
+      },
+      "test_metrics": {
+        "n_samples": 157,
+        "accuracy": 0.802547770700637,
+        "macro_f1": 0.6846368172098749,
+        "weighted_f1": 0.7939500970086022,
+        "log_loss": 0.4311310468042013,
+        "per_class": {
+          "fail": {
+            "precision": 0.5555555555555556,
+            "recall": 0.4411764705882353,
+            "f1": 0.4918032786885246,
+            "support": 34
+          },
+          "pass": {
+            "precision": 0.8538461538461538,
+            "recall": 0.9024390243902439,
+            "f1": 0.8774703557312253,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "fail",
+            "pass"
+          ],
+          "matrix": [
+            [
+              15,
+              19
+            ],
+            [
+              12,
+              111
+            ]
+          ]
+        },
+        "roc_auc": 0.8500717360114777,
+        "pr_auc": 0.9558375954095667
+      },
+      "feature_schema": {
+        "age": {
+          "type": "numeric",
+          "min": 15.0,
+          "max": 22.0,
+          "integer": true
+        },
+        "Medu": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "Fedu": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "traveltime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "studytime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "failures": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 3.0,
+          "integer": true
+        },
+        "famrel": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "freetime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "goout": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "Dalc": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "Walc": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "health": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "absences": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 75.0,
+          "integer": true
+        },
+        "school": {
+          "type": "categorical",
+          "allowed": [
+            "GP",
+            "MS"
+          ]
+        },
+        "sex": {
+          "type": "categorical",
+          "allowed": [
+            "F",
+            "M"
+          ]
+        },
+        "address": {
+          "type": "categorical",
+          "allowed": [
+            "R",
+            "U"
+          ]
+        },
+        "famsize": {
+          "type": "categorical",
+          "allowed": [
+            "GT3",
+            "LE3"
+          ]
+        },
+        "Pstatus": {
+          "type": "categorical",
+          "allowed": [
+            "A",
+            "T"
+          ]
+        },
+        "Mjob": {
+          "type": "categorical",
+          "allowed": [
+            "at_home",
+            "health",
+            "other",
+            "services",
+            "teacher"
+          ]
+        },
+        "Fjob": {
+          "type": "categorical",
+          "allowed": [
+            "at_home",
+            "health",
+            "other",
+            "services",
+            "teacher"
+          ]
+        },
+        "reason": {
+          "type": "categorical",
+          "allowed": [
+            "course",
+            "home",
+            "other",
+            "reputation"
+          ]
+        },
+        "guardian": {
+          "type": "categorical",
+          "allowed": [
+            "father",
+            "mother",
+            "other"
+          ]
+        },
+        "schoolsup": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "famsup": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "paid": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "activities": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "nursery": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "higher": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "internet": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "romantic": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "subject": {
+          "type": "categorical",
+          "allowed": [
+            "math",
+            "portuguese"
+          ]
+        }
+      },
+      "provenance": {
+        "source": "UCI Student Performance (Cortez & Silva, 2008), Portuguese secondary schools",
+        "files": [
+          "student-mat.csv",
+          "student-por.csv"
+        ],
+        "rows": 1044,
+        "duplicate_students_grouped": 382,
+        "excluded_for_leakage": [
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "intended_use": "Early-warning support from background/behaviour before any grades exist.",
+      "limitations": [
+        "~1,044 rows from two schools in Portugal; metrics are noisy.",
+        "Grades G1/G2 are deliberately excluded, which lowers accuracy but avoids near-duplicate-of-target features.",
+        "Contains sensitive attributes (alcohol use, romantic status, parents' education/jobs); use only to direct support, never to penalise students.",
+        "Pass/fail is not dropout."
+      ],
+      "status": "validated",
+      "explanation_note": "SHAP values describe how the model uses features; they are NOT causal explanations."
+    },
+    "xgboost": {
+      "model_id": "student_performance-v20261027141946-xgboost",
+      "version": "student_performance-v20261027141946",
+      "dataset_id": "student_performance",
+      "title": "Student Performance (Math + Portuguese) - fail risk",
+      "algorithm": "xgboost",
+      "target": "fail = final grade G3 < 10 (of 20); pass = G3 >= 10. Academic failure, NOT dropout.",
+      "classes": [
+        "fail",
+        "pass"
+      ],
+      "class_mapping": {
+        "fail": 0,
+        "pass": 1
+      },
+      "trained_at": "2026-10-27T14:19:51.570832+00:00",
+      "seed": 42,
+      "split": {
+        "strategy": "stratified-grouped",
+        "train": 0.7,
+        "validation": 0.15,
+        "test": 0.15,
+        "n_train": 729,
+        "n_validation": 158,
+        "n_test": 157
+      },
+      "selection_metric": "validation macro_f1",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 3,
+        "learning_rate": 0.1
+      },
+      "tuning_log": [
+        {
+          "params": {
+            "n_estimators": 150,
+            "max_depth": 3,
+            "learning_rate": 0.05
+          },
+          "val_macro_f1": 0.6804853387259858,
+          "val_accuracy": 0.7468354430379747,
+          "val_log_loss": 0.496973904835155,
+          "fit_seconds": 0.1
+        },
+        {
+          "params": {
+            "n_estimators": 150,
+            "max_depth": 3,
+            "learning_rate": 0.1
+          },
+          "val_macro_f1": 0.6928815340162857,
+          "val_accuracy": 0.7658227848101266,
+          "val_log_loss": 0.4984407346598464,
+          "fit_seconds": 0.1
+        },
+        {
+          "params": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.05
+          },
+          "val_macro_f1": 0.6762295081967213,
+          "val_accuracy": 0.7721518987341772,
+          "val_log_loss": 0.45053332469805185,
+          "fit_seconds": 0.1
+        },
+        {
+          "params": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          },
+          "val_macro_f1": 0.6814516129032258,
+          "val_accuracy": 0.7848101265822784,
+          "val_log_loss": 0.4715201969004318,
+          "fit_seconds": 0.1
+        },
+        {
+          "params": {
+            "n_estimators": 300,
+            "max_depth": 3,
+            "learning_rate": 0.05
+          },
+          "val_macro_f1": 0.6595561301443654,
+          "val_accuracy": 0.7468354430379747,
+          "val_log_loss": 0.48897813880891794,
+          "fit_seconds": 0.2
+        },
+        {
+          "params": {
+            "n_estimators": 300,
+            "max_depth": 3,
+            "learning_rate": 0.1
+          },
+          "val_macro_f1": 0.651335656213705,
+          "val_accuracy": 0.759493670886076,
+          "val_log_loss": 0.5030085990809389,
+          "fit_seconds": 0.2
+        },
+        {
+          "params": {
+            "n_estimators": 300,
+            "max_depth": 5,
+            "learning_rate": 0.05
+          },
+          "val_macro_f1": 0.6865079365079365,
+          "val_accuracy": 0.7974683544303798,
+          "val_log_loss": 0.44968287348447034,
+          "fit_seconds": 0.2
+        },
+        {
+          "params": {
+            "n_estimators": 300,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          },
+          "val_macro_f1": 0.6685248456512618,
+          "val_accuracy": 0.7784810126582279,
+          "val_log_loss": 0.5031543359757629,
+          "fit_seconds": 0.2
+        }
+      ],
+      "class_imbalance_handling": "balanced class/sample weights",
+      "validation_metrics": {
+        "n_samples": 158,
+        "accuracy": 0.7658227848101266,
+        "macro_f1": 0.6928815340162857,
+        "weighted_f1": 0.7762429634949609,
+        "log_loss": 0.4984407346598464,
+        "per_class": {
+          "fail": {
+            "precision": 0.4782608695652174,
+            "recall": 0.6285714285714286,
+            "f1": 0.5432098765432098,
+            "support": 35
+          },
+          "pass": {
+            "precision": 0.8839285714285714,
+            "recall": 0.8048780487804879,
+            "f1": 0.8425531914893617,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "fail",
+            "pass"
+          ],
+          "matrix": [
+            [
+              22,
+              13
+            ],
+            [
+              24,
+              99
+            ]
+          ]
+        },
+        "roc_auc": 0.7927990708478514,
+        "pr_auc": 0.9282342946988582
+      },
+      "test_metrics": {
+        "n_samples": 157,
+        "accuracy": 0.7197452229299363,
+        "macro_f1": 0.6180893409995577,
+        "weighted_f1": 0.7297853100341712,
+        "log_loss": 0.5332061052597762,
+        "per_class": {
+          "fail": {
+            "precision": 0.38095238095238093,
+            "recall": 0.47058823529411764,
+            "f1": 0.42105263157894735,
+            "support": 34
+          },
+          "pass": {
+            "precision": 0.8434782608695652,
+            "recall": 0.7886178861788617,
+            "f1": 0.8151260504201681,
+            "support": 123
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "fail",
+            "pass"
+          ],
+          "matrix": [
+            [
+              16,
+              18
+            ],
+            [
+              26,
+              97
+            ]
+          ]
+        },
+        "roc_auc": 0.7618364418938307,
+        "pr_auc": 0.9271096021025915
+      },
+      "feature_schema": {
+        "age": {
+          "type": "numeric",
+          "min": 15.0,
+          "max": 22.0,
+          "integer": true
+        },
+        "Medu": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "Fedu": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "traveltime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "studytime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 4.0,
+          "integer": true
+        },
+        "failures": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 3.0,
+          "integer": true
+        },
+        "famrel": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "freetime": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "goout": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "Dalc": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "Walc": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "health": {
+          "type": "numeric",
+          "min": 1.0,
+          "max": 5.0,
+          "integer": true
+        },
+        "absences": {
+          "type": "numeric",
+          "min": 0.0,
+          "max": 75.0,
+          "integer": true
+        },
+        "school": {
+          "type": "categorical",
+          "allowed": [
+            "GP",
+            "MS"
+          ]
+        },
+        "sex": {
+          "type": "categorical",
+          "allowed": [
+            "F",
+            "M"
+          ]
+        },
+        "address": {
+          "type": "categorical",
+          "allowed": [
+            "R",
+            "U"
+          ]
+        },
+        "famsize": {
+          "type": "categorical",
+          "allowed": [
+            "GT3",
+            "LE3"
+          ]
+        },
+        "Pstatus": {
+          "type": "categorical",
+          "allowed": [
+            "A",
+            "T"
+          ]
+        },
+        "Mjob": {
+          "type": "categorical",
+          "allowed": [
+            "at_home",
+            "health",
+            "other",
+            "services",
+            "teacher"
+          ]
+        },
+        "Fjob": {
+          "type": "categorical",
+          "allowed": [
+            "at_home",
+            "health",
+            "other",
+            "services",
+            "teacher"
+          ]
+        },
+        "reason": {
+          "type": "categorical",
+          "allowed": [
+            "course",
+            "home",
+            "other",
+            "reputation"
+          ]
+        },
+        "guardian": {
+          "type": "categorical",
+          "allowed": [
+            "father",
+            "mother",
+            "other"
+          ]
+        },
+        "schoolsup": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "famsup": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "paid": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "activities": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "nursery": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "higher": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "internet": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "romantic": {
+          "type": "categorical",
+          "allowed": [
+            "no",
+            "yes"
+          ]
+        },
+        "subject": {
+          "type": "categorical",
+          "allowed": [
+            "math",
+            "portuguese"
+          ]
+        }
+      },
+      "provenance": {
+        "source": "UCI Student Performance (Cortez & Silva, 2008), Portuguese secondary schools",
+        "files": [
+          "student-mat.csv",
+          "student-por.csv"
+        ],
+        "rows": 1044,
+        "duplicate_students_grouped": 382,
+        "excluded_for_leakage": [
+          "G1",
+          "G2",
+          "G3"
+        ]
+      },
+      "intended_use": "Early-warning support from background/behaviour before any grades exist.",
+      "limitations": [
+        "~1,044 rows from two schools in Portugal; metrics are noisy.",
+        "Grades G1/G2 are deliberately excluded, which lowers accuracy but avoids near-duplicate-of-target features.",
+        "Contains sensitive attributes (alcohol use, romantic status, parents' education/jobs); use only to direct support, never to penalise students.",
+        "Pass/fail is not dropout."
+      ],
+      "status": "validated",
+      "explanation_note": "SHAP values describe how the model uses features; they are NOT causal explanations."
+    }
+  }
+}

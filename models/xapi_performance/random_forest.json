@@ -1,0 +1,353 @@
+{
+  "model_id": "xapi_performance-v20261027142018-random_forest",
+  "version": "xapi_performance-v20261027142018",
+  "dataset_id": "xapi_performance",
+  "title": "xAPI-Edu-Data academic performance",
+  "algorithm": "random_forest",
+  "target": "Class: L (low), M (medium), H (high) academic performance band. This is NOT a dropout label.",
+  "classes": [
+    "L",
+    "M",
+    "H"
+  ],
+  "class_mapping": {
+    "L": 0,
+    "M": 1,
+    "H": 2
+  },
+  "trained_at": "2026-10-27T14:20:21.895526+00:00",
+  "seed": 42,
+  "split": {
+    "strategy": "stratified",
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15,
+    "n_train": 336,
+    "n_validation": 72,
+    "n_test": 72
+  },
+  "selection_metric": "validation macro_f1",
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": null,
+    "min_samples_leaf": 3
+  },
+  "tuning_log": [
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      "val_macro_f1": 0.756990045861997,
+      "val_accuracy": 0.75,
+      "val_log_loss": 0.541899504916677,
+      "fit_seconds": 0.7
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 3
+      },
+      "val_macro_f1": 0.7708281766658415,
+      "val_accuracy": 0.7638888888888888,
+      "val_log_loss": 0.5819461688681985,
+      "fit_seconds": 0.6
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 12,
+        "min_samples_leaf": 1
+      },
+      "val_macro_f1": 0.7460641267250815,
+      "val_accuracy": 0.7361111111111112,
+      "val_log_loss": 0.5448357693335985,
+      "fit_seconds": 0.5
+    },
+    {
+      "params": {
+        "n_estimators": 200,
+        "max_depth": 12,
+        "min_samples_leaf": 3
+      },
+      "val_macro_f1": 0.7708281766658415,
+      "val_accuracy": 0.7638888888888888,
+      "val_log_loss": 0.5829036011960439,
+      "fit_seconds": 0.7
+    }
+  ],
+  "class_imbalance_handling": "balanced class/sample weights",
+  "validation_metrics": {
+    "n_samples": 72,
+    "accuracy": 0.7638888888888888,
+    "macro_f1": 0.7708281766658415,
+    "weighted_f1": 0.7616397885290328,
+    "log_loss": 0.5819461688681985,
+    "per_class": {
+      "L": {
+        "precision": 0.7727272727272727,
+        "recall": 0.8947368421052632,
+        "f1": 0.8292682926829268,
+        "support": 19
+      },
+      "M": {
+        "precision": 0.7586206896551724,
+        "recall": 0.6875,
+        "f1": 0.7213114754098361,
+        "support": 32
+      },
+      "H": {
+        "precision": 0.7619047619047619,
+        "recall": 0.7619047619047619,
+        "f1": 0.7619047619047619,
+        "support": 21
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "L",
+        "M",
+        "H"
+      ],
+      "matrix": [
+        [
+          17,
+          2,
+          0
+        ],
+        [
+          5,
+          22,
+          5
+        ],
+        [
+          0,
+          5,
+          16
+        ]
+      ]
+    },
+    "roc_auc_ovr_macro": 0.9121893180683397
+  },
+  "test_metrics": {
+    "n_samples": 72,
+    "accuracy": 0.7222222222222222,
+    "macro_f1": 0.7298714922633097,
+    "weighted_f1": 0.7190969490340064,
+    "log_loss": 0.5648966853274558,
+    "per_class": {
+      "L": {
+        "precision": 0.7727272727272727,
+        "recall": 0.8947368421052632,
+        "f1": 0.8292682926829268,
+        "support": 19
+      },
+      "M": {
+        "precision": 0.7,
+        "recall": 0.65625,
+        "f1": 0.6774193548387096,
+        "support": 32
+      },
+      "H": {
+        "precision": 0.7,
+        "recall": 0.6666666666666666,
+        "f1": 0.6829268292682927,
+        "support": 21
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "L",
+        "M",
+        "H"
+      ],
+      "matrix": [
+        [
+          17,
+          2,
+          0
+        ],
+        [
+          5,
+          21,
+          6
+        ],
+        [
+          0,
+          7,
+          14
+        ]
+      ]
+    },
+    "roc_auc_ovr_macro": 0.9010537965393043
+  },
+  "feature_schema": {
+    "raisedhands": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 100.0,
+      "integer": true
+    },
+    "VisITedResources": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 99.0,
+      "integer": true
+    },
+    "AnnouncementsView": {
+      "type": "numeric",
+      "min": 0.0,
+      "max": 98.0,
+      "integer": true
+    },
+    "Discussion": {
+      "type": "numeric",
+      "min": 2.0,
+      "max": 99.0,
+      "integer": true
+    },
+    "gender": {
+      "type": "categorical",
+      "allowed": [
+        "F",
+        "M"
+      ]
+    },
+    "NationalITy": {
+      "type": "categorical",
+      "allowed": [
+        "Egypt",
+        "Iran",
+        "Iraq",
+        "Jordan",
+        "KW",
+        "Lybia",
+        "Morocco",
+        "Palestine",
+        "SaudiArabia",
+        "Syria",
+        "Tunis",
+        "USA",
+        "lebanon"
+      ]
+    },
+    "PlaceofBirth": {
+      "type": "categorical",
+      "allowed": [
+        "Egypt",
+        "Iran",
+        "Iraq",
+        "Jordan",
+        "KuwaIT",
+        "Lybia",
+        "Morocco",
+        "Palestine",
+        "SaudiArabia",
+        "Syria",
+        "Tunis",
+        "USA",
+        "lebanon"
+      ]
+    },
+    "StageID": {
+      "type": "categorical",
+      "allowed": [
+        "HighSchool",
+        "MiddleSchool",
+        "lowerlevel"
+      ]
+    },
+    "GradeID": {
+      "type": "categorical",
+      "allowed": [
+        "G-02",
+        "G-04",
+        "G-05",
+        "G-06",
+        "G-07",
+        "G-08",
+        "G-09",
+        "G-10",
+        "G-11",
+        "G-12"
+      ]
+    },
+    "SectionID": {
+      "type": "categorical",
+      "allowed": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "Topic": {
+      "type": "categorical",
+      "allowed": [
+        "Arabic",
+        "Biology",
+        "Chemistry",
+        "English",
+        "French",
+        "Geology",
+        "History",
+        "IT",
+        "Math",
+        "Quran",
+        "Science",
+        "Spanish"
+      ]
+    },
+    "Semester": {
+      "type": "categorical",
+      "allowed": [
+        "F",
+        "S"
+      ]
+    },
+    "Relation": {
+      "type": "categorical",
+      "allowed": [
+        "Father",
+        "Mum"
+      ]
+    },
+    "ParentAnsweringSurvey": {
+      "type": "categorical",
+      "allowed": [
+        "No",
+        "Yes"
+      ]
+    },
+    "ParentschoolSatisfaction": {
+      "type": "categorical",
+      "allowed": [
+        "Bad",
+        "Good"
+      ]
+    },
+    "StudentAbsenceDays": {
+      "type": "categorical",
+      "allowed": [
+        "Above-7",
+        "Under-7"
+      ]
+    }
+  },
+  "provenance": {
+    "source": "UCI / Kaggle xAPI-Edu-Data (Amrieh et al., 2016), Kalboard 360 LMS",
+    "file": "xAPI-Edu-Data.csv",
+    "rows": 480,
+    "missing_values": 0
+  },
+  "intended_use": "Predict performance band from engagement behaviour. Do not present as dropout prediction.",
+  "limitations": [
+    "Only 480 rows: test set is ~72 students, so metrics are noisy.",
+    "Performance band is derived from marks, not dropout.",
+    "Engagement counts may be partly a consequence of performance (possible reverse causality).",
+    "Single LMS, mostly Middle-Eastern students."
+  ],
+  "status": "validated",
+  "explanation_note": "SHAP values describe how the model uses features; they are NOT causal explanations."
+}
